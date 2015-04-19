@@ -5,8 +5,7 @@ import os
 filename = 'schedule' #储存当前的破解进度
 resultname = 'result' #最终的破解结果
 order = 0
-#cipher = 'd033e22ae348aeb5660fc2140aec35850c4da997'  #要破解的SHA1密文
-cipher = '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'
+cipher = '945d4c6ab9dab7b3878db92b5736c7bdcdcd92e1' #要破解的sha1密文
 #dic = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 dic = ['0','1','2','3','4','5','6','7','8','9'] #破解时使用的字典，此处为所有的0-9数字组合。上面一行是所有的字母数字组合，根据需要进行注释调整。
 
@@ -48,7 +47,7 @@ def run():
 		order += 1
 		if hashlib.sha1(text).hexdigest() == cipher: #此行为该破解算法的核心，检测明文"text"的SHA1哈希值是否与CIPHER相等
 			print text
-			print "find!"
+			print "found!"
 			if os.path.isfile(resultname):
 				os.remove(resultname)
 			fp = open(resultname,'w')
